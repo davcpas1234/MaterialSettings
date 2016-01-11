@@ -95,14 +95,6 @@ public class SettingsExampleActivity extends PreferenceActivity {
         bindPreferenceSummaryToValue(findPreference("smart5_user_display_name"));
         bindPreferenceSummaryToValue(findPreference("smart5_username"));
         bindPreferenceSummaryToValue(findPreference("smart5_user_ident"));
-        Preference testNotification = findPreference("smart5_notifications_play_test");
-        testNotification.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-
-            public boolean onPreferenceClick(Preference preference) {
-                generateTestNotification("Test Notification", "Swipe to dismiss this notification", "");
-                return false;
-            }
-        });
         Preference app_version = findPreference("smart5_application_version");
         setPreferenceSummary(app_version, appVersion);
         Preference logout = findPreference("smart5_user_logout");
@@ -259,22 +251,5 @@ public class SettingsExampleActivity extends PreferenceActivity {
                 dialog.dismiss();
             }
         });
-    }
-
-    private void generateTestNotification(String title, String content, String ticker) {
-        Log.i("Start", "notification");
-        //Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.bite_notification);
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(this);
-        notification.setContentTitle(title);
-        notification.setContentText(content);
-        notification.setTicker(ticker);
-        //notification.setSmallIcon(R.drawable.ic_logo_notification);
-        notification.setColor(Color.argb(255, 95, 177, 11));
-        //notification.setSound(sound);
-        notification.setVibrate(new long[]{1000, 1000, 1000});
-        notification.setLights(Color.GREEN, 1000, 3000);
-        NotificationManager mNotificationManager = ((NotificationManager) getSystemService(NOTIFICATION_SERVICE));
-        int notificationID = 100;
-        mNotificationManager.notify(notificationID, notification.build());
     }
 }
