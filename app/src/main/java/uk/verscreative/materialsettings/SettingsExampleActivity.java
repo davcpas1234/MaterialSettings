@@ -253,7 +253,7 @@ public class SettingsExampleActivity extends PreferenceActivity {
         }
 
         Toolbar Tbar = (Toolbar) bar.getChildAt(0);
-
+        Tbar.setTitle(preferenceScreen.getTitle());
         Tbar.setNavigationOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 dialog.dismiss();
