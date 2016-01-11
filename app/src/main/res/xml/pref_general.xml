@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen
+        android:title="Data &amp; Sync">
+
+        <ListPreference
+            android:defaultValue="180"
+            android:entries="@array/pref_sync_frequency_titles"
+            android:entryValues="@array/pref_sync_frequency_values"
+            android:key="sync_frequency"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/pref_title_sync_frequency" />
+
+        <!-- This preference simply launches an intent when selected. Use this UI sparingly, per
+             design guidelines. -->
+        <Preference android:title="@string/pref_title_system_sync_settings">
+            <intent android:action="android.settings.SYNC_SETTINGS" />
+        </Preference>
+
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:title="Notifications">
+        <PreferenceCategory android:title="Notifications">
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="smart5_notifications"
+                android:title="@string/pref_title_new_message_notifications" />
+            <RingtonePreference
+                android:defaultValue="content://settings/system/notification_sound"
+                android:dependency="smart5_notifications"
+                android:key="smart5_notifications_ringtone"
+                android:ringtoneType="notification"
+                android:title="@string/pref_title_ringtone" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:dependency="smart5_notifications"
+                android:key="smart5_notifications_vibrate"
+                android:title="@string/pref_title_vibrate" />
+        </PreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+
+        android:title="App">
+        <PreferenceCategory android:title="Application">
+            <Preference
+                android:key="smart5_application_version"
+                android:title="@string/pref_title_application_version" />
+        </PreferenceCategory>
+    </PreferenceScreen>
+</PreferenceScreen>
