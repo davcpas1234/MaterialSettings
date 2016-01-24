@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceScreen
+        android:theme="@style/AppTheme.NoActionBar"
         android:title="Data &amp; Sync">
 
         <ListPreference
@@ -20,7 +21,8 @@
 
     </PreferenceScreen>
     <PreferenceScreen
-        android:title="Notifications">
+        android:title="Notifications"
+        android:theme="@style/AppTheme.NoActionBar">
         <PreferenceCategory android:title="Notifications">
             <CheckBoxPreference
                 android:defaultValue="true"
@@ -40,7 +42,7 @@
         </PreferenceCategory>
     </PreferenceScreen>
     <PreferenceScreen
-
+        android:theme="@style/AppTheme.NoActionBar"
         android:title="App">
         <PreferenceCategory android:title="Application">
             <Preference

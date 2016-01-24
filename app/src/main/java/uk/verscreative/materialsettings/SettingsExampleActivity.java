@@ -28,6 +28,7 @@ import android.view.View;
 import android.os.Build;
 import android.os.Bundle;
 import android.content.pm.PackageManager;
+import android.view.Window;
 import android.widget.LinearLayout;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -92,20 +93,8 @@ public class SettingsExampleActivity extends PreferenceActivity {
     private void setupSimplePreferencesScreen() {
         addPreferencesFromResource(R.xml.pref_general);
         bindPreferenceSummaryToValue(findPreference("smart5_notifications_ringtone"));
-        bindPreferenceSummaryToValue(findPreference("smart5_user_display_name"));
-        bindPreferenceSummaryToValue(findPreference("smart5_username"));
-        bindPreferenceSummaryToValue(findPreference("smart5_user_ident"));
-        Preference app_version = findPreference("smart5_application_version");
-        setPreferenceSummary(app_version, appVersion);
-        Preference logout = findPreference("smart5_user_logout");
-        logout.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-
-            public boolean onPreferenceClick(Preference preference) {
-
-                return false;
-            }
-        });
     }
+
     private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
@@ -207,9 +196,13 @@ public class SettingsExampleActivity extends PreferenceActivity {
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         super.onPreferenceTreeClick(preferenceScreen, preference);
 
-        // If the user has clicked on a preference screen, set up the screen
-        if (preference instanceof PreferenceScreen) {
-            setUpNestedScreen((PreferenceScreen) preference);
+        if (preference!=null) {
+            if (preference instanceof PreferenceScreen) {
+                if (((PreferenceScreen) preference).getDialog() != null) {
+                    ((PreferenceScreen) preference).getDialog().getWindow().getDecorView().setBackgroundDrawable(this.getWindow().getDecorView().getBackground().getConstantState().newDrawable());
+                    setUpNestedScreen((PreferenceScreen) preference);
+                }
+            }
         }
 
         return false;
