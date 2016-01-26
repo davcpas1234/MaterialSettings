@@ -18,4 +18,4 @@ and so this code is called, add the following to your `SettingsActivity` declara
 android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
 ```
 
-Thanks to @hclemens for indentifying this.
+Thanks to [@hclemens](https://github.com/hclemens) for indentifying this.
