@@ -17,5 +17,19 @@ and so this code is called, add the following to your `SettingsActivity` declara
 ```xml
 android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
 ```
+Full Example:
+```xml
+<activity
+    android:name=".SettingsExampleActivity"
+    android:label="@string/title_activity_settings_example"
+    android:theme="@style/AppTheme.NoActionBar"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
 
 Thanks to [@hclemens](https://github.com/hclemens) for indentifying this.
