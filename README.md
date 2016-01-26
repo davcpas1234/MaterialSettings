@@ -2,7 +2,7 @@
 
 The open repository with a global support for Android 5 Toolbar within any Settings Activity (`PreferenceActivity`), compatible with API 10 and above.
 
-##Important Compatibility
+##IMPORTANT - Compatibility
 ###Gingerbread
 
 In order to handle nested `PreferenceScreens` correctly `onConfigurationChanged()` must be overriden in your `SettingsActivity` as below:
