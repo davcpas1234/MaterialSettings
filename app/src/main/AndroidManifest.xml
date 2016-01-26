@@ -11,7 +11,8 @@
         <activity
             android:name=".SettingsExampleActivity"
             android:label="@string/title_activity_settings_example"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
