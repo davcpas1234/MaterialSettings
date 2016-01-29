@@ -34,7 +34,7 @@ public View onCreateView(String name, Context context, AttributeSet attrs) {
     return null;
 }
 ```
->**Remember**: Import the appcompt-v7 library in your `app.gradle`
+>**Remember**: Import the appcompt-v7 library in your `app.gradle`:<br/>
 >`compile 'com.android.support:appcompat-v7:22.2.0'`
 
 ###Gingerbread
@@ -82,5 +82,5 @@ To simulate the elevation of the Toolbar on pre-L devices, utilise the following
 </android.support.design.widget.AppBarLayout>
 ```
 
->**Remember**: Import the Design library in your `app.gradle`
+>**Remember**: Import the Design library in your `app.gradle`:<br/>
 >`compile 'com.android.support:design:22.2.0'`
