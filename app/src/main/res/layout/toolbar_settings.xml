@@ -12,9 +12,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="?colorPrimary"
-        app:titleTextColor="@color/colorTitleText"
         android:minHeight="?actionBarSize"
-        app:theme="@style/ToolbarTheme"
+        app:titleTextColor="@color/colorTitleText"
+        app:theme="@style/AppTheme.SettingsTheme.Toolbar"
         app:navigationContentDescription="@string/abc_action_bar_up_description"
         app:navigationIcon="?homeAsUpIndicator"
         app:title="@string/action_settings" />
