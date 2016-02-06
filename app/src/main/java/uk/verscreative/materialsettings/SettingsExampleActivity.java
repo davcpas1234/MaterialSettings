@@ -93,6 +93,8 @@ public class SettingsExampleActivity extends PreferenceActivity {
     private void setupSimplePreferencesScreen() {
         addPreferencesFromResource(R.xml.pref_general);
         bindPreferenceSummaryToValue(findPreference("notifications_ringtone"));
+        Preference app_version = findPreference("application_version");
+        setPreferenceSummary(app_version, appVersion);
     }
 
     private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
