@@ -92,7 +92,7 @@ public class SettingsExampleActivity extends PreferenceActivity {
     @SuppressWarnings("deprecation")
     private void setupSimplePreferencesScreen() {
         addPreferencesFromResource(R.xml.pref_general);
-        bindPreferenceSummaryToValue(findPreference("smart5_notifications_ringtone"));
+        bindPreferenceSummaryToValue(findPreference("notifications_ringtone"));
     }
 
     private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
