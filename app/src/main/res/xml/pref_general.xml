@@ -26,18 +26,18 @@
         <PreferenceCategory android:title="Notifications">
             <CheckBoxPreference
                 android:defaultValue="true"
-                android:key="smart5_notifications"
+                android:key="enable_notifications"
                 android:title="@string/pref_title_new_message_notifications" />
             <RingtonePreference
                 android:defaultValue="content://settings/system/notification_sound"
-                android:dependency="smart5_notifications"
-                android:key="smart5_notifications_ringtone"
+                android:dependency="enable_notifications"
+                android:key="notifications_ringtone"
                 android:ringtoneType="notification"
                 android:title="@string/pref_title_ringtone" />
             <CheckBoxPreference
                 android:defaultValue="true"
-                android:dependency="smart5_notifications"
-                android:key="smart5_notifications_vibrate"
+                android:dependency="enable_notifications"
+                android:key="notifications_vibrate"
                 android:title="@string/pref_title_vibrate" />
         </PreferenceCategory>
     </PreferenceScreen>
@@ -46,7 +46,7 @@
         android:title="App">
         <PreferenceCategory android:title="Application">
             <Preference
-                android:key="smart5_application_version"
+                android:key="application_version"
                 android:title="@string/pref_title_application_version" />
         </PreferenceCategory>
     </PreferenceScreen>
