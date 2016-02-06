@@ -1,3 +1,4 @@
+![Banner](https://raw.github.com/davcpas1234/MaterialSettings/master/media/app-banner.png)
 #MaterialSettings
 
 The open repository with a global support for Android 5 Toolbar within any Settings Activity (`PreferenceActivity`), compatible with API 10 and above.
