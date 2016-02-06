@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MaterialSettings</string>
+    <string name="app_name">Material Settings</string>
     <string name="title_activity_settings_example">SettingsExampleActivity</string>
     <string name="action_settings">Settings</string>
 
