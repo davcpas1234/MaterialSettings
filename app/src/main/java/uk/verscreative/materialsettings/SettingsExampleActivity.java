@@ -219,8 +219,8 @@ public class SettingsExampleActivity extends PreferenceActivity {
         ViewGroup mRootView = (ViewGroup) dialog.findViewById(android.R.id.content);
 
 
-        if (listRoot != null) {
-            LinearLayout root = (LinearLayout) listRoot.getParent();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            LinearLayout root = (LinearLayout) dialog.findViewById(android.R.id.list).getParent();
             appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.toolbar_settings, root, false);
             root.addView(appBar, 0);
         } else {
