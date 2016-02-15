@@ -213,35 +213,42 @@ public class SettingsExampleActivity extends PreferenceActivity {
     public void setUpNestedScreen(PreferenceScreen preferenceScreen) {
         final Dialog dialog = preferenceScreen.getDialog();
 
-        AppBarLayout bar;
+        Toolbar tBar;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            LinearLayout root = (LinearLayout) dialog.findViewById(android.R.id.list).getParent();
-            bar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.toolbar_settings, root, false);
-            root.addView(bar, 0);
+        View listRoot = dialog.findViewById(android.R.id.list);
+        ViewGroup mRootView = (ViewGroup) dialog.findViewById(android.R.id.content);
+
+
+        if (listRoot != null) {
+            LinearLayout root = (LinearLayout) listRoot.getParent();
+            bar = (Toolbar) LayoutInflater.from(this).inflate(R.layout.toolbar, root, false);
+            root.addView(bar, 0); // insert at top
         } else {
-            ViewGroup root = (ViewGroup) dialog.findViewById(android.R.id.content);
-            ListView content = (ListView) root.getChildAt(0);
-            root.removeAllViews();
-            bar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.toolbar_settings, root, false);
+            ListView content = (ListView) mRootView.getChildAt(0);
+            mRootView.removeAllViews();
 
-            int height;
-            TypedValue tv = new TypedValue();
-            if (getTheme().resolveAttribute(R.attr.actionBarSize, tv, true)) {
-                height = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
-            }else{
-                height = bar.getHeight();
-            }
+            LinearLayout LL = new LinearLayout(this);
+            LL.setOrientation(LinearLayout.VERTICAL);
 
-            content.setPadding(0, height, 0, 0);
+            ViewGroup.LayoutParams LLParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            LL.setLayoutParams(LLParams);
 
-            root.addView(content);
-            root.addView(bar);
+            bar = (Toolbar) LayoutInflater.from(this).inflate(R.layout.toolbar, mRootView, false);
+
+            LL.addView(bar);
+            LL.addView(content);
+
+            mRootView.addView(LL);
         }
 
-        Toolbar Tbar = (Toolbar) bar.getChildAt(0);
-        Tbar.setTitle(preferenceScreen.getTitle());
-        Tbar.setNavigationOnClickListener(new View.OnClickListener() {
+        if(listRoot != null){
+            listRoot.setPadding(0, listRoot.getPaddingTop(), 0, listRoot.getPaddingBottom());
+        }
+
+        tBar.setTitle(preferenceScreen.getTitle());
+
+        tBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
