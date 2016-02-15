@@ -213,7 +213,7 @@ public class SettingsExampleActivity extends PreferenceActivity {
     public void setUpNestedScreen(PreferenceScreen preferenceScreen) {
         final Dialog dialog = preferenceScreen.getDialog();
 
-        Toolbar tBar;
+        AppBarLayout appBar;
 
         View listRoot = dialog.findViewById(android.R.id.list);
         ViewGroup mRootView = (ViewGroup) dialog.findViewById(android.R.id.content);
@@ -221,8 +221,8 @@ public class SettingsExampleActivity extends PreferenceActivity {
 
         if (listRoot != null) {
             LinearLayout root = (LinearLayout) listRoot.getParent();
-            bar = (Toolbar) LayoutInflater.from(this).inflate(R.layout.toolbar, root, false);
-            root.addView(bar, 0); // insert at top
+            appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.settings_toolbar, root, false);
+            root.addView(bar, 0);
         } else {
             ListView content = (ListView) mRootView.getChildAt(0);
             mRootView.removeAllViews();
@@ -233,9 +233,9 @@ public class SettingsExampleActivity extends PreferenceActivity {
             ViewGroup.LayoutParams LLParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             LL.setLayoutParams(LLParams);
 
-            bar = (Toolbar) LayoutInflater.from(this).inflate(R.layout.toolbar, mRootView, false);
+            appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.settings_toolbar, mRootView, false);
 
-            LL.addView(bar);
+            LL.addView(appBar);
             LL.addView(content);
 
             mRootView.addView(LL);
@@ -245,9 +245,11 @@ public class SettingsExampleActivity extends PreferenceActivity {
             listRoot.setPadding(0, listRoot.getPaddingTop(), 0, listRoot.getPaddingBottom());
         }
 
-        tBar.setTitle(preferenceScreen.getTitle());
-
-        tBar.setNavigationOnClickListener(new View.OnClickListener() {
+        Toolbar Tbar = (Toolbar) appBar.getChildAt(0);
+        
+        Tbar.setTitle(preferenceScreen.getTitle());
+        
+        Tbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
