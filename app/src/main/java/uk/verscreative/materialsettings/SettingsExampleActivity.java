@@ -222,7 +222,7 @@ public class SettingsExampleActivity extends PreferenceActivity {
         if (listRoot != null) {
             LinearLayout root = (LinearLayout) listRoot.getParent();
             appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.toolbar_settings, root, false);
-            root.addView(bar, 0);
+            root.addView(appBar, 0);
         } else {
             ListView content = (ListView) mRootView.getChildAt(0);
             mRootView.removeAllViews();
