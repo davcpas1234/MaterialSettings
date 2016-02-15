@@ -221,7 +221,7 @@ public class SettingsExampleActivity extends PreferenceActivity {
 
         if (listRoot != null) {
             LinearLayout root = (LinearLayout) listRoot.getParent();
-            appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.settings_toolbar, root, false);
+            appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.toolbar_settings, root, false);
             root.addView(bar, 0);
         } else {
             ListView content = (ListView) mRootView.getChildAt(0);
@@ -233,7 +233,7 @@ public class SettingsExampleActivity extends PreferenceActivity {
             ViewGroup.LayoutParams LLParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             LL.setLayoutParams(LLParams);
 
-            appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.settings_toolbar, mRootView, false);
+            appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.toolbar_settings, mRootView, false);
 
             LL.addView(appBar);
             LL.addView(content);
