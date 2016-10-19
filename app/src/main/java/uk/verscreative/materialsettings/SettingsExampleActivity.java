@@ -218,8 +218,12 @@ public class SettingsExampleActivity extends PreferenceActivity {
         View listRoot = dialog.findViewById(android.R.id.list);
         ViewGroup mRootView = (ViewGroup) dialog.findViewById(android.R.id.content);
 
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            LinearLayout root = (LinearLayout) dialog.findViewById(android.R.id.list).getParent().getParent();
+            appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.toolbar_settings, root, false);
+            root.addView(appBar, 0);
+        }
+        else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             LinearLayout root = (LinearLayout) dialog.findViewById(android.R.id.list).getParent();
             appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.toolbar_settings, root, false);
             root.addView(appBar, 0);
