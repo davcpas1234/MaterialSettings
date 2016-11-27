@@ -18,11 +18,9 @@
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
-    <item name="colorControlNormal">#ffffffff</item>
 </style>
 
-<style name="AppTheme.SettingsTheme.Toolbar" parent="AppTheme.SettingsTheme">
-    <item name="android:textColorPrimary">#ffffffff</item>
+<style name="AppTheme.SettingsTheme.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
 </style>
 
 </resources>
