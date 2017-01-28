@@ -46,6 +46,7 @@ public View onCreateView(String name, Context context, AttributeSet attrs) {
 In order to handle nested `PreferenceScreens` correctly `onConfigurationChanged()` must be overriden in your `SettingsActivity` as below:
 
 ```java
+    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
     }
