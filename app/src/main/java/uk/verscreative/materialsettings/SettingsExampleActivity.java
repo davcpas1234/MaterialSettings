@@ -184,6 +184,7 @@ public class SettingsExampleActivity extends PreferenceActivity {
         return null;
     }
 
+    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
     }
