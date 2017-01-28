@@ -239,10 +239,6 @@ public class SettingsExampleActivity extends PreferenceActivity {
             mRootView.addView(LL);
         }
 
-        if(listRoot != null){
-            listRoot.setPadding(0, listRoot.getPaddingTop(), 0, listRoot.getPaddingBottom());
-        }
-
         Toolbar Tbar = (Toolbar) appBar.getChildAt(0);
         
         Tbar.setTitle(preferenceScreen.getTitle());
