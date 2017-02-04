@@ -251,4 +251,14 @@ public class SettingsExampleActivity extends PreferenceActivity {
             }
         });
     }
+    
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle state) {
+
+    }
 }
