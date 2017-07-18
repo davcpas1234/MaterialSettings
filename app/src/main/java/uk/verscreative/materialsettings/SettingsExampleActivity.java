@@ -7,7 +7,6 @@ import android.preference.PreferenceActivity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.preference.Preference;
-import android.app.NotificationManager;
 
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
@@ -18,17 +17,13 @@ import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.AppCompatSpinner;
 import android.text.TextUtils;
-import android.util.Log;
 import android.net.Uri;
-import android.support.v7.app.NotificationCompat;
-import android.graphics.Color;
 import android.content.res.Configuration;
 import android.util.AttributeSet;
 import android.view.View;
 import android.os.Build;
 import android.os.Bundle;
 import android.content.pm.PackageManager;
-import android.view.Window;
 import android.widget.LinearLayout;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -189,6 +184,7 @@ public class SettingsExampleActivity extends PreferenceActivity {
         return null;
     }
 
+    @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
     }
@@ -222,8 +218,7 @@ public class SettingsExampleActivity extends PreferenceActivity {
             LinearLayout root = (LinearLayout) dialog.findViewById(android.R.id.list).getParent().getParent();
             appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.toolbar_settings, root, false);
             root.addView(appBar, 0);
-        }
-        else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             LinearLayout root = (LinearLayout) dialog.findViewById(android.R.id.list).getParent();
             appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.toolbar_settings, root, false);
             root.addView(appBar, 0);
@@ -245,10 +240,6 @@ public class SettingsExampleActivity extends PreferenceActivity {
             mRootView.addView(LL);
         }
 
-        if(listRoot != null){
-            listRoot.setPadding(0, listRoot.getPaddingTop(), 0, listRoot.getPaddingBottom());
-        }
-
         Toolbar Tbar = (Toolbar) appBar.getChildAt(0);
         
         Tbar.setTitle(preferenceScreen.getTitle());
@@ -259,5 +250,15 @@ public class SettingsExampleActivity extends PreferenceActivity {
                 dialog.dismiss();
             }
         });
+    }
+    
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle state) {
+
     }
 }
