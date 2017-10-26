@@ -1,14 +1,20 @@
 package uk.verscreative.materialsettings;
 
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.preference.ListPreference;
-import android.preference.PreferenceActivity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
-
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.AppCompatCheckBox;
@@ -16,22 +22,15 @@ import android.support.v7.widget.AppCompatCheckedTextView;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.AppCompatSpinner;
-import android.text.TextUtils;
-import android.net.Uri;
-import android.content.res.Configuration;
-import android.util.AttributeSet;
-import android.view.View;
-import android.os.Build;
-import android.os.Bundle;
-import android.content.pm.PackageManager;
-import android.widget.LinearLayout;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
-import android.widget.ListView;
+import android.text.TextUtils;
+import android.util.AttributeSet;
 import android.util.TypedValue;
-import android.preference.PreferenceScreen;
-import android.app.Dialog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 
 
 public class SettingsExampleActivity extends PreferenceActivity {
@@ -215,7 +214,25 @@ public class SettingsExampleActivity extends PreferenceActivity {
         ViewGroup mRootView = (ViewGroup) dialog.findViewById(android.R.id.content);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            LinearLayout root = (LinearLayout) dialog.findViewById(android.R.id.list).getParent().getParent();
+            LinearLayout root = null;
+            try {
+                root = (LinearLayout) dialog.findViewById(android.R.id.list).getParent();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            try {
+                root = (LinearLayout) dialog.findViewById(android.R.id.list).getParent().getParent();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            try {
+                root = (LinearLayout) dialog.findViewById(android.R.id.list).getParent().getParent().getParent();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             appBar = (AppBarLayout) LayoutInflater.from(this).inflate(R.layout.toolbar_settings, root, false);
             root.addView(appBar, 0);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
