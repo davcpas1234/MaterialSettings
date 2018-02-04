@@ -1,14 +1,14 @@
 ![Banner](https://raw.github.com/davcpas1234/MaterialSettings/master/media/app-banner.png)
-#MaterialSettings
+# MaterialSettings
 
 The open repository with a global support for Android 5 Toolbar within any Settings Activity (`PreferenceActivity`), compatible with API 10 and above.
 
-##Sample App
+## Sample App
 <!-- [<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" width="200" alt="Google Play">](https://play.google.com/store/apps/details?id=uk.verscreative.materialsettings)-->
 >Being Updated! - Watch this space :)
 
-##IMPORTANT - Compatibility
-###Element Tinting
+## IMPORTANT - Compatibility
+### Element Tinting
 In order to mimic (material-like) element tinting on pre-L devices utilise the following code:
 ```java
 @Override
@@ -42,7 +42,7 @@ public View onCreateView(String name, Context context, AttributeSet attrs) {
 >**Remember**: Import the appcompt-v7 library in your `app.gradle`:<br/>
 >`compile 'com.android.support:appcompat-v7:22.2.0'`
 
-###Gingerbread
+### Gingerbread
 
 In order to handle nested `PreferenceScreens` correctly `onConfigurationChanged()` must be overriden in your `SettingsActivity` as below:
 
@@ -74,7 +74,7 @@ Full Example:
 
 Thanks to [@hclemens](https://github.com/hclemens) for indentifying this.
 
-###Toolbar Shadow
+### Toolbar Shadow
 To simulate the elevation of the Toolbar on pre-L devices, utilise the following code:
 
 ```xml
