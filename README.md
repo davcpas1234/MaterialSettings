@@ -3,10 +3,6 @@
 
 The open repository with a global support for Android 5 Toolbar within any Settings Activity (`PreferenceActivity`), compatible with API 10 and above.
 
-## Sample App
-<!-- [<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" width="200" alt="Google Play">](https://play.google.com/store/apps/details?id=uk.verscreative.materialsettings)-->
->Being Updated! - Watch this space :)
-
 ## IMPORTANT - Compatibility
 ### Element Tinting
 In order to mimic (material-like) element tinting on pre-L devices utilise the following code:
