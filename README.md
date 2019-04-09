@@ -1,5 +1,7 @@
-### Deprecated (No Longer Developed)
+# Deprecated (No Longer Developed)
 This example is no longer maintained as Google have implemented the `AppCompatDelegate` class to implement Material Design in a `PreferenceActivity`. 
+
+---
 
 ![Banner](https://raw.github.com/davcpas1234/MaterialSettings/master/media/app-banner.png)
 # MaterialSettings
